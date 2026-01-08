@@ -1,0 +1,8 @@
+{
+  "name": "AUTOLIFT Wellness Portal",
+  "description": "Premium wellness portal featuring lymphatic drainage sessions, progress tracking with AI image analysis, and an AI metabolic coach.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

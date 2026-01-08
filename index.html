@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>AUTOLIFT Wellness Portal</title>
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#fbbf24",
+                        "primary-orange": "#c2410c",
+                        "primary-dark": "#9a3412",
+                        "background-light": "#faf8f5",
+                        "background-dark": "#211d1b",
+                        "card-dark": "#332c29",
+                        "text-muted": "#a8a29d",
+                        "sand": "#F0EBD8",
+                        "refreshing": "#22D3EE", 
+                        "olive-bg": "#F4F7F0",
+                        "olive-text": "#556B2F",
+                        "terracotta-bg": "#FEF5F2",
+                        "terracotta-text": "#BC5845",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f5efe6; }
+        ::-webkit-scrollbar-thumb { background: #795548; border-radius: 4px; }
+        .progress-ring__circle { transition: stroke-dashoffset 0.35s; transform: rotate(-90deg); transform-origin: 50% 50%; }
+        
+        /* Markdown Styles for AI Response */
+        .prose h1, .prose h2, .prose h3 { color: #fbbf24; font-weight: 700; margin-top: 1em; margin-bottom: 0.5em; }
+        .prose p { margin-bottom: 0.8em; line-height: 1.6; }
+        .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 0.8em; }
+        .prose strong { color: #fff; font-weight: 600; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "rxjs": "https://esm.sh/rxjs@^7.8.2?conditions=es2015",
+    "rxjs/operators": "https://esm.sh/rxjs@^7.8.2/operators?conditions=es2015",
+    "rxjs/ajax": "https://esm.sh/rxjs@^7.8.2/ajax?conditions=es2015",
+    "rxjs/webSocket": "https://esm.sh/rxjs@^7.8.2/webSocket?conditions=es2015",
+    "rxjs/testing": "https://esm.sh/rxjs@^7.8.2/testing?conditions=es2015",
+    "rxjs/fetch": "https://esm.sh/rxjs@^7.8.2/fetch?conditions=es2015",
+    "@angular/platform-browser": "https://esm.sh/@angular/platform-browser@^21.0.8?external=rxjs",
+    "@angular/forms": "https://esm.sh/@angular/forms@^21.0.7?external=rxjs",
+    "@angular/common": "https://esm.sh/@angular/common@^21.0.8?external=rxjs",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0?external=rxjs",
+    "@angular/compiler": "https://esm.sh/@angular/compiler@^21.0.8?external=rxjs",
+    "@angular/router": "https://esm.sh/@angular/router@^21.0.8?external=rxjs",
+    "@angular/core": "https://esm.sh/@angular/core@^21.0.8?external=rxjs",
+    "ngx-markdown": "https://esm.sh/ngx-markdown@^21.0.1?external=rxjs"
+  }
+}
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen overflow-hidden font-display selection:bg-primary selection:text-black">
+    <app-root></app-root>
+</body>
+</html>
