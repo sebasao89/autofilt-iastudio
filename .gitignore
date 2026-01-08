@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Secrets & Environment files (API keys, credentials)
+src/environments/environment.ts
+src/environments/environment.prod.ts
+.env
+.env.*
+!.env.example

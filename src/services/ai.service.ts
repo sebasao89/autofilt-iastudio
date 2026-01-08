@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { GoogleGenAI, GenerativeModel } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,7 @@ export class AiService {
   private genAI: GoogleGenAI;
 
   constructor() {
-    this.genAI = new GoogleGenAI({ apiKey: process.env['API_KEY']! });
-  }
-
-  get model(): GenerativeModel {
-    return this.genAI.models;
+    this.genAI = new GoogleGenAI({ apiKey: environment.geminiApiKey });
   }
 
   async chat(message: string, history: any[] = [], lang: 'es' | 'en' = 'es') {

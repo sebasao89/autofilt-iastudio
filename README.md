@@ -10,11 +10,23 @@ View your app in AI Studio: https://ai.studio/apps/drive/13eGxskojDWkp6REW9cvw0K
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+**Prerequisites:** Node.js, pnpm
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+   ```bash
+   pnpm install
+   ```
+
+2. Configure your API key:
+   ```bash
+   # Copy the example environment file
+   cp src/environments/environment.example.ts src/environments/environment.ts
+   ```
+   Then edit `src/environments/environment.ts` and add your [Gemini API key](https://aistudio.google.com/app/apikey)
+
 3. Run the app:
-   `npm run dev`
+   ```bash
+   pnpm dev
+   ```
+
+> ⚠️ **Security Note:** Never commit `environment.ts` to version control. It's already added to `.gitignore`.
