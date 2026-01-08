@@ -22,7 +22,7 @@ import { TranslationService } from '../services/translation.service';
 
           <!-- Navigation -->
           <nav class="flex flex-col gap-2">
-            <a routerLink="/" routerLinkActive="bg-primary/20 text-white" [routerLinkActiveOptions]="{exact: true}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-text-muted hover:bg-[#4d423d]/50 hover:text-white">
+            <a routerLink="/dashboard" routerLinkActive="bg-primary/20 text-white" [routerLinkActiveOptions]="{exact: true}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-text-muted hover:bg-[#4d423d]/50 hover:text-white">
               <span class="material-symbols-outlined">dashboard</span>
               <p class="text-sm font-semibold">{{ ts.text().sidebar.dashboard }}</p>
             </a>

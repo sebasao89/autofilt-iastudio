@@ -3,18 +3,13 @@ import {
   Attribute,
   ChangeDetectorRef,
   DEFAULT_CURRENCY_CODE,
-  DOCUMENT,
-  DestroyRef,
   Directive,
   ElementRef,
   Host,
   IMAGE_CONFIG,
   IMAGE_CONFIG_DEFAULTS,
-  INTERNAL_APPLICATION_ERROR_HANDLER,
   Inject,
   Injectable,
-  InjectionToken,
-  Injector,
   Input,
   IterableDiffers,
   KeyValueDiffers,
@@ -22,43 +17,52 @@ import {
   LocaleDataIndex,
   NgModule,
   NgModuleRef$1,
-  NgZone,
   Optional,
   Pipe,
   Renderer2,
   RendererStyleFlags2,
-  RuntimeError,
-  Subject,
   TemplateRef,
-  Version,
   ViewContainerRef,
   booleanAttribute,
   createNgModule,
   findLocaleData,
-  formatRuntimeError,
   getLocaleCurrencyCode,
   getLocalePluralCase,
-  inject,
   isPromise,
   isSubscribable,
   numberAttribute,
   performanceMarkFeature,
   registerLocaleData,
   setClassMetadata,
-  stringify,
-  untracked,
   unwrapSafeValue,
   ɵɵNgOnChangesFeature,
   ɵɵdefineDirective,
-  ɵɵdefineInjectable,
-  ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵdefinePipe,
   ɵɵdirectiveInject,
-  ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-G4UH2EJD.js";
+} from "./chunk-4QKPNOIU.js";
+import {
+  DOCUMENT,
+  DestroyRef,
+  INTERNAL_APPLICATION_ERROR_HANDLER,
+  InjectionToken,
+  Injector,
+  NgZone,
+  RuntimeError,
+  Version,
+  formatRuntimeError,
+  inject,
+  stringify,
+  untracked,
+  ɵɵdefineInjectable,
+  ɵɵdefineInjector,
+  ɵɵinject
+} from "./chunk-B3UVVJD6.js";
+import {
+  Subject
+} from "./chunk-3NTDFDXB.js";
 import {
   __spreadProps,
   __spreadValues
@@ -4630,4 +4634,4 @@ export {
   PRECONNECT_CHECK_BLOCKLIST,
   NgOptimizedImage
 };
-//# sourceMappingURL=chunk-LSLPFIZY.js.map
+//# sourceMappingURL=chunk-LST2PINF.js.map
