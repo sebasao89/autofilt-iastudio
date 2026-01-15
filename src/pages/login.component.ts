@@ -1,10 +1,15 @@
-import { Component, inject, signal } from "@angular/core";
+import {
+  Component,
+  inject,
+  signal,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import { Router } from "@angular/router";
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-login",
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div
       class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a1716] via-[#2a2320] to-[#1a1716] relative overflow-hidden"
@@ -49,7 +54,11 @@ import { FormsModule } from "@angular/forms";
         <div
           class="bg-card-dark/80 backdrop-blur-xl rounded-3xl p-8 border border-[#4d423d] shadow-2xl"
         >
-          <form (submit)="onLogin($event)" class="flex flex-col gap-6">
+          <form
+            [formGroup]="loginForm"
+            (ngSubmit)="onLogin()"
+            class="flex flex-col gap-6"
+          >
             <!-- Email Field -->
             <div class="flex flex-col gap-2">
               <label
@@ -65,11 +74,9 @@ import { FormsModule } from "@angular/forms";
                 <input
                   type="email"
                   id="email"
-                  [(ngModel)]="email"
-                  name="email"
+                  formControlName="email"
                   placeholder="tu@email.com"
                   class="w-full bg-[#1a1716] border border-[#4d423d] rounded-xl px-4 py-3.5 text-white placeholder-text-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-                  required
                 />
               </div>
             </div>
@@ -89,11 +96,9 @@ import { FormsModule } from "@angular/forms";
                 <input
                   [type]="showPassword() ? 'text' : 'password'"
                   id="password"
-                  [(ngModel)]="password"
-                  name="password"
+                  formControlName="password"
                   placeholder="••••••••"
                   class="w-full bg-[#1a1716] border border-[#4d423d] rounded-xl px-4 py-3.5 pr-12 text-white placeholder-text-muted focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-                  required
                 />
                 <button
                   type="button"
@@ -112,6 +117,7 @@ import { FormsModule } from "@angular/forms";
               <label class="flex items-center gap-2 cursor-pointer group">
                 <input
                   type="checkbox"
+                  formControlName="rememberMe"
                   class="w-4 h-4 rounded border-[#4d423d] bg-[#1a1716] text-primary focus:ring-primary/20 cursor-pointer"
                 />
                 <span
@@ -129,7 +135,7 @@ import { FormsModule } from "@angular/forms";
             <!-- Submit Button -->
             <button
               type="submit"
-              [disabled]="isLoading()"
+              [disabled]="isLoading() || loginForm.invalid"
               class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-amber-500 hover:from-amber-500 hover:to-primary text-background-dark font-bold py-4 rounded-xl transition-all duration-300 shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
             >
               @if (isLoading()) {
@@ -198,13 +204,18 @@ import { FormsModule } from "@angular/forms";
       </div>
     </div>
   `,
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
 })
 export class LoginComponent {
   private router = inject(Router);
+  private fb = inject(FormBuilder);
 
-  email = "";
-  password = "";
+  loginForm = this.fb.group({
+    email: ["", [Validators.required, Validators.email]],
+    password: ["", [Validators.required, Validators.minLength(6)]],
+    rememberMe: [false],
+  });
+
   showPassword = signal(false);
   isLoading = signal(false);
 
@@ -212,8 +223,9 @@ export class LoginComponent {
     this.showPassword.update((v) => !v);
   }
 
-  onLogin(event: Event) {
-    event.preventDefault();
+  onLogin() {
+    if (this.loginForm.invalid) return;
+
     this.isLoading.set(true);
 
     // Simulate login delay, then redirect to dashboard
